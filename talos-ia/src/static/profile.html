@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Talos IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="loaded">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.svg" alt="Logo Talos IA" class="logo">
+                <h2>Talos IA</h2>
+            </div>
+
+            <!-- Navegação Principal -->
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item" id="home-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Início</span>
+                </a>
+                <a href="dashboard.html" class="nav-item" id="dashboard-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="challenges.html" class="nav-item" id="challenges-link">
+                    <span class="nav-icon">🏆</span>
+                    <span>Desafios</span>
+                </a>
+            </nav>
+
+            <!-- Chats Recentes -->
+            <div class="chats-section">
+                <div class="chats-header">
+                    <h3>Chats Recentes</h3>
+                    <button id="new-chat-button" class="new-chat-btn" title="Novo Chat">
+                        <span class="nav-icon">+</span>
+                    </button>
+                </div>
+                <div class="chats-list" id="chat-list">
+                    <!-- Chats serão carregados aqui -->
+                </div>
+            </div>
+
+            <!-- Upgrade Pro (Menor) -->
+            <div class="upgrade-section">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">⭐</div>
+                    <div class="upgrade-content">
+                        <h4>Talos IA Pro</h4>
+                        <p>Chats ilimitados e muito mais!</p>
+                    </div>
+                    <button id="upgrade-button" class="upgrade-btn">
+                        Fazer Upgrade
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Inferior -->
+            <div class="sidebar-footer">
+                <button class="footer-btn" id="help-button" title="Ajuda">
+                    <span class="nav-icon">?</span>
+                    <span>Ajuda</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <h1 id="main-title">Meu Perfil</h1>
+                <div class="user-info" id="user-profile-trigger">
+                    <img src="https://via.placeholder.com/40" alt="Perfil" class="profile-picture" id="profile-picture">
+                    <span id="user-name">Usuário</span>
+                </div>
+            </header>
+
+            <!-- Área do Perfil -->
+            <div class="profile-content">
+                <div class="profile-container">
+                    <!-- Seção da Foto de Perfil -->
+                    <div class="profile-picture-section">
+                        <div class="profile-picture-container">
+                            <h3>Foto de perfil:</h3>
+                            <img alt="Foto de Perfil" class="profile-picture-large" id="profile-picture-large" style="width: 150px; border-radius: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                            <div class="profile-picture-overlay">
+                                <span class="material-icons">camera_alt</span>
+                                <span>Alterar Foto</span>
+                            </div>
+                            <input type="file" id="profile-picture-input" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <!-- Seção do Banner -->
+                    <div class="profile-banner-section">
+                        <div class="profile-banner-container">
+                            <h3>Banner:</h3>
+                            <img alt="Banner" class="profile-banner" id="profile-banner" style="width: 400px; height: 100px; object-fit: cover;">
+                            <div class="profile-banner-overlay">
+                                <span class="material-icons">camera_alt</span>
+                                <span>Alterar Banner</span>
+                            </div>
+                            <input type="file" id="profile-banner-input" accept="image/*" style="display: none;">
+                        </div>
+                        <h2 id="profile-display-name">Nome do Usuário</h2>
+                        <p id="profile-display-email">email@exemplo.com</p>
+                    </div>
+
+                    <!-- Formulário de Edição -->
+                    <div class="profile-form-section">
+                        <form id="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name">Nome Completo:</label>
+                                    <input type="text" id="profile-name" placeholder="Seu nome completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email:</label>
+                                    <input type="email" id="profile-email" placeholder="seu@email.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-age">Idade:</label>
+                                    <input type="number" id="profile-age" min="6" max="99" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-education">Nível de Ensino:</label>
+                                    <select id="profile-education" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="fundamental_i">Ensino Fundamental I (1º ao 5º ano)</option>
+                                        <option value="fundamental_ii">Ensino Fundamental II (6º ao 9º ano)</option>
+                                        <option value="medio">Ensino Médio</option>
+                                        <option value="superior">Ensino Superior</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-difficulty">Dificuldade Preferida:</label>
+                                    <select id="profile-difficulty" required>
+                                        <option value="muito_facil">Muito Fácil (6-10 anos)</option>
+                                        <option value="facil">Fácil (11-12 anos)</option>
+                                        <option value="medio_facil">Médio Fácil (13-14 anos)</option>
+                                        <option value="medio">Médio (15-16 anos)</option>
+                                        <option value="medio_dificil">Médio Difícil (17-18 anos)</option>
+                                        <option value="dificil">Difícil (19+ anos)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-phone">Telefone (opcional):</label>
+                                    <input type="tel" id="profile-phone" placeholder="(11) 99999-9999">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile-bio">Sobre mim (opcional):</label>
+                                <br>
+                                <textarea id="profile-bio" rows="4" placeholder="Conte um pouco sobre você, seus interesses e objetivos de aprendizado..."></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" id="cancel-profile-edit" class="button-secondary">Cancelar</button>
+                                <button type="submit" class="button-primary">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mini Popup do Perfil -->
+    <div class="profile-popup-overlay" id="profile-popup-overlay">
+        <div class="profile-popup" id="profile-popup">
+            <div class="profile-popup-header">
+                <img id="profile-popup-picture" src="https://via.placeholder.com/48" alt="Perfil" class="profile-popup-picture">
+                <div class="profile-popup-info">
+                    <h4 id="profile-popup-name">Usuário</h4>
+                    <p id="profile-popup-email">usuario@email.com</p>
+                </div>
+            </div>
+            <ul class="profile-popup-menu">
+                <li class="profile-popup-item">
+                    <a href="profile.html" class="profile-popup-link">
+                        <span class="nav-icon">👤</span>
+                        <span>Editar Perfil</span>
+                    </a>
+                </li>
+                <li class="profile-popup-item">
+                    <a href="#" class="profile-popup-link" id="settings-link">
+                        <span class="nav-icon">⚙</span>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="profile-popup-item">
+                    <a href="#" class="profile-popup-link" id="help-link">
+                        <span class="nav-icon">?</span>
+                        <span>Ajuda</span>
+                    </a>
+                </li>
+                <li class="profile-popup-item">
+                    <a href="#" class="profile-popup-link logout" id="logout-link">
+                        <span class="nav-icon">→</span>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal de Configurações -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Configurações</h3>
+                <button class="modal-close" id="close-settings-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Tema</label>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary" id="light-theme">☀ Claro</button>
+                        <button class="btn btn-secondary" id="dark-theme">🌙 Escuro</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tema personalizado</label>
+                    <label>Selecione uma cor:</label>
+                    <input type="color" id="custom-theme">
+                </div>
+
+                <div class="form-group">    
+                    <label class="form-label">Memórias</label>
+                    <a class="btn btn-primary" href="memory_manager.html">Gerenciar memórias</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save-settings">Salvar Configurações</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Upgrade -->
+    <div class="modal-overlay" id="upgrade-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Talos IA Pro</h3>
+                <button class="modal-close" id="close-upgrade-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">⭐</div>
+                    <h4 style="margin-bottom: 8px;">Desbloqueie todo o potencial do Talos IA!</h4>
+                    <p style="color: var(--text-secondary);">Tenha acesso a recursos exclusivos e aprenda sem limites.</p>
+                </div>
+                
+                <div style="background-color: var(--background-tertiary); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h5 style="margin-bottom: 12px;">Recursos Pro:</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;">• Chats ilimitados por dia</li>
+                        <li style="margin-bottom: 8px;">• Desafios avançados personalizados</li>
+                        <li style="margin-bottom: 8px;">• Relatórios detalhados de progresso</li>
+                        <li style="margin-bottom: 8px;">• Acesso a IAs especializadas</li>
+                        <li style="margin-bottom: 8px;">• Respostas mais rápidas</li>
+                        <li>• Temas e personalizações exclusivas</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 8px;">
+                        R$ 19,90/mês
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cancele quando quiser</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="maybe-later">Talvez depois</button>
+                <button class="btn btn-primary" id="upgrade-now">Fazer Upgrade</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="help-popup-overlay" id="help-popup-overlay">
+        <div class="help-popup">
+            <div class="help-popup-header">
+                <span class="help-popup-icon">💡</span>
+                <h2 class="help-popup-title">Central de Ajuda</h2>
+                <button class="help-popup-close" id="help-popup-close">×</button>
+            </div>
+            <div class="help-popup-body">
+                <div class="help-section">
+                    <h3><span class="help-section-icon">🚀</span>Como Começar</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">📚</span>
+                            <span class="help-list-text">Selecione uma matéria na tela inicial para começar um novo chat</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">💬</span>
+                            <span class="help-list-text">Digite suas perguntas no campo de texto e pressione Enter ou clique em enviar</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎯</span>
+                            <span class="help-list-text">Seja específico em suas perguntas para obter respostas mais precisas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">⚙️</span>Funcionalidades</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">✏️</span>
+                            <span class="help-list-text">Edite o nome dos seus chats clicando no botão "Editar" no cabeçalho do chat</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🗑️</span>
+                            <span class="help-list-text">Delete chats que não precisa mais usando o botão "Excluir"</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🌙</span>
+                            <span class="help-list-text">Alterne entre modo claro e escuro nas configurações</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎚️</span>
+                            <span class="help-list-text">Ajuste o nível de dificuldade das respostas baseado na sua idade</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">📊</span>Limites e Planos</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">🆓</span>
+                            <span class="help-list-text">Plano gratuito: 5 conversas por dia</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">⭐</span>
+                            <span class="help-list-text">Talos IA Pro: Conversas ilimitadas e recursos avançados</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🔄</span>
+                            <span class="help-list-text">O limite diário é resetado a cada 24 horas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">💡</span>Dicas de Uso</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">❓</span>
+                            <span class="help-list-text">Faça perguntas específicas: "Como resolver equações de 2º grau?" em vez de "Matemática"</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">📝</span>
+                            <span class="help-list-text">Peça exemplos práticos para entender melhor os conceitos</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🔍</span>
+                            <span class="help-list-text">Use o histórico de chats para revisar conversas anteriores</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎓</span>
+                            <span class="help-list-text">Explore diferentes matérias para ampliar seus conhecimentos</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="help-contact">
+                    <h4>Precisa de mais ajuda?</h4>
+                    <p>Nossa equipe está sempre pronta para ajudar você!</p>
+                    <button class="help-contact-button" onclick="window.open('mailto:suporte@taloia.com', '_blank')">
+                        Entrar em Contato
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

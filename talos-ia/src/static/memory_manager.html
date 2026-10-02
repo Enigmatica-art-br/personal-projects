@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talos IA 3.0</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Prevenção de flash branco */
+        html {
+            background-color: #ffffff;
+        }
+        
+        [data-theme="dark"] html {
+            background-color: #1a1a1a;
+        }
+        
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="./logo.svg" alt="Logo Talos IA" class="logo">
+                <h2>Talos IA</h2>
+            </div>
+
+            <!-- Navegação Principal -->
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item" id="home-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Início</span>
+                </a>
+                <a href="dashboard.html" class="nav-item" id="dashboard-link">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="challenges.html" class="nav-item" id="challenges-link">
+                    <span class="nav-icon">🏆</span>
+                    <span>Desafios</span>
+                </a>
+            </nav>
+
+            <!-- Chats Recentes -->
+            <div class="chats-section">
+                <div class="chats-header">
+                    <h3>Chats Recentes</h3>
+                    <button id="new-chat-button" class="new-chat-btn" title="Novo Chat">
+                        <span class="nav-icon">+</span>
+                    </button>
+                </div>
+                <div class="chats-list" id="chat-list">
+                    <!-- Chats serão carregados aqui -->
+                </div>
+            </div>
+
+            <!-- Upgrade Pro (Menor) -->
+            <div class="upgrade-section">
+                <div class="upgrade-card">
+                    <div class="upgrade-icon">⭐</div>
+                    <div class="upgrade-content">
+                        <h4>Talos IA Pro</h4>
+                        <p>Chats ilimitados e muito mais!</p>
+                    </div>
+                    <button id="upgrade-button" class="upgrade-btn">
+                        Fazer Upgrade
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Inferior (SEM PERFIL) -->
+            <div class="sidebar-footer">
+                <button class="footer-btn" id="help-button" title="Ajuda">
+                    <span class="nav-icon">?</span>
+                    <span>Ajuda</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="main-header">
+                <h1 id="main-title">Memórias</h1>
+                <div class="user-info" id="user-profile-trigger">
+                    <img src="logo.svg" alt="Perfil" class="profile-picture" id="profile-picture">
+                    <span id="user-name">Usuário</span>
+                </div>
+            </header>
+
+            
+            <!-- Área de Conteúdo -->
+            <div class="content-area">
+                <!-- Stats Section -->
+                <section class="memory-manager-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="total-memories">-</div>
+                                <div class="stat-label">Total de Memórias</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="unique-chats">-</div>
+                                <div class="stat-label">Chats Únicos</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔥</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="most-active-chat">-</div>
+                                <div class="stat-label">Chat Mais Ativo</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Filters Section -->
+                <section class="memory-manager-section">
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="chat-filter">Filtrar por Chat:</label>
+                            <select id="chat-filter">
+                                <option value="">Todos os Chats</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="search-filter">Buscar:</label>
+                            <input type="text" id="search-filter" placeholder="Buscar nas memórias...">
+                        </div>
+                        <div class="filter-group">
+                            <button id="refresh-btn" class="btn btn-primary">🔄 Atualizar</button>
+                            <button id="clear-all-btn" class="btn btn-danger">🗑️ Limpar Tudo</button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Memories List -->
+                <section class="memory-manager-section">
+                    <div class="memories-header">
+                        <h2>Memórias de Chat</h2>
+                        <div class="pagination-info">
+                            <span id="pagination-text">Carregando...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="memories-container" id="memories-container">
+                        <!-- Loading State -->
+                        <div class="loading-state" id="loading-state">
+                            <div class="loading-spinner"></div>
+                            <p>Carregando memórias...</p>
+                        </div>
+                        
+                        <!-- Empty State -->
+                        <div class="empty-state" id="empty-state" style="display: none;">
+                            <div class="empty-icon">🧠</div>
+                            <h3>Nenhuma memória encontrada</h3>
+                            <p>Não há memórias de chat para exibir no momento.</p>
+                        </div>
+                        
+                        <!-- Memories List -->
+                        <div class="memories-list" id="memories-list" style="display: none;">
+                            <!-- Memory items will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container" id="pagination-container" style="display: none;">
+                        <button id="prev-page" class="btn btn-secondary">← Anterior</button>
+                        <span id="page-info">Página 1 de 1</span>
+                        <button id="next-page" class="btn btn-secondary">Próxima →</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!-- Popup de Perfil -->
+        <div class="profile-popup-overlay" id="profile-popup-overlay">
+            <div class="profile-popup" id="profile-popup">
+                <div class="profile-popup-header">
+                    <img id="profile-popup-picture" src="https://via.placeholder.com/48" alt="Perfil" class="profile-popup-picture">
+                    <div class="profile-popup-info">
+                        <h4 id="profile-popup-name">Usuário</h4>
+                        <p id="profile-popup-email">usuario@email.com</p>
+                    </div>
+                </div>
+                <ul class="profile-popup-menu">
+                    <li class="profile-popup-item">
+                        <a href="profile.html" class="profile-popup-link">
+                            <span class="nav-icon">👤</span>
+                            <span>Editar Perfil</span>
+                        </a>
+                    </li>
+                    <li class="profile-popup-item">
+                        <a href="#" class="profile-popup-link" id="settings-link">
+                            <span class="nav-icon">⚙</span>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                    <li class="profile-popup-item">
+                        <a href="#" class="profile-popup-link" id="help-link">
+                            <span class="nav-icon">?</span>
+                            <span>Ajuda</span>
+                        </a>
+                    </li>
+                    <li class="profile-popup-item">
+                        <a href="#" class="profile-popup-link logout" id="logout-link">
+                            <span class="nav-icon">→</span>
+                            <span>Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Memória -->
+    <div class="modal-overlay" id="edit-memory-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar Memória</h3>
+                <button class="modal-close" id="close-edit-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="chat-name-input">Memória</label>
+                    <input type="text" id="chat-name-input" class="form-input" placeholder="Digite o novo nome...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-edit">Cancelar</button>
+                <button class="btn btn-primary" id="save-edit">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Upgrade -->
+    <div class="modal-overlay" id="upgrade-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Talos IA Pro</h3>
+                <button class="modal-close" id="close-upgrade-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">⭐</div>
+                    <h4 style="margin-bottom: 8px;">Desbloqueie todo o potencial do Talos IA!</h4>
+                    <p style="color: var(--text-secondary);">Tenha acesso a recursos exclusivos e aprenda sem limites.</p>
+                </div>
+                
+                <div style="background-color: var(--background-tertiary); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h5 style="margin-bottom: 12px;">Recursos Pro:</h5>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;">• Chats ilimitados por dia</li>
+                        <li style="margin-bottom: 8px;">• Desafios avançados personalizados</li>
+                        <li style="margin-bottom: 8px;">• Relatórios detalhados de progresso</li>
+                        <li style="margin-bottom: 8px;">• Acesso a IAs especializadas</li>
+                        <li style="margin-bottom: 8px;">• Respostas mais rápidas</li>
+                        <li>• Temas e personalizações exclusivas</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 8px;">
+                        R$ 19,90/mês
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cancele quando quiser</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="maybe-later">Talvez depois</button>
+                <button class="btn btn-primary" id="upgrade-now">Fazer Upgrade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Configurações -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Configurações</h3>
+                <button class="modal-close" id="close-settings-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Tema</label>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-secondary" id="light-theme">☀ Claro</button>
+                        <button class="btn btn-secondary" id="dark-theme">🌙 Escuro</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tema personalizado</label>
+                    <label>Selecione uma cor:</label>
+                    <input type="color" id="custom-theme">
+                </div>
+                
+                <div class="form-group">    
+                    <label class="form-label">Memórias</label>
+                    <a class="btn btn-primary" href="memory_manager/memory_manager.html">Gerenciar memórias</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save-settings">Salvar Configurações</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Ajuda Personalizado -->
+    <div class="help-popup-overlay" id="help-popup-overlay">
+        <div class="help-popup">
+            <div class="help-popup-header">
+                <span class="help-popup-icon">💡</span>
+                <h2 class="help-popup-title">Central de Ajuda</h2>
+                <button class="help-popup-close" id="help-popup-close">×</button>
+            </div>
+            <div class="help-popup-body">
+                <div class="help-section">
+                    <h3><span class="help-section-icon">🚀</span>Como Começar</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">📚</span>
+                            <span class="help-list-text">Selecione uma matéria na tela inicial para começar um novo chat</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">💬</span>
+                            <span class="help-list-text">Digite suas perguntas no campo de texto e pressione Enter ou clique em enviar</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎯</span>
+                            <span class="help-list-text">Seja específico em suas perguntas para obter respostas mais precisas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">⚙️</span>Funcionalidades</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">✏️</span>
+                            <span class="help-list-text">Edite o nome dos seus chats clicando no botão "Editar" no cabeçalho do chat</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🗑️</span>
+                            <span class="help-list-text">Delete chats que não precisa mais usando o botão "Excluir"</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🌙</span>
+                            <span class="help-list-text">Alterne entre modo claro e escuro nas configurações</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎚️</span>
+                            <span class="help-list-text">Ajuste o nível de dificuldade das respostas baseado na sua idade</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">📊</span>Limites e Planos</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">🆓</span>
+                            <span class="help-list-text">Plano gratuito: 5 conversas por dia</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">⭐</span>
+                            <span class="help-list-text">Talos IA Pro: Conversas ilimitadas e recursos avançados</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🔄</span>
+                            <span class="help-list-text">O limite diário é resetado a cada 24 horas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-section">
+                    <h3><span class="help-section-icon">💡</span>Dicas de Uso</h3>
+                    <ul class="help-list">
+                        <li>
+                            <span class="help-list-icon">❓</span>
+                            <span class="help-list-text">Faça perguntas específicas: "Como resolver equações de 2º grau?" em vez de "Matemática"</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">📝</span>
+                            <span class="help-list-text">Peça exemplos práticos para entender melhor os conceitos</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🔍</span>
+                            <span class="help-list-text">Use o histórico de chats para revisar conversas anteriores</span>
+                        </li>
+                        <li>
+                            <span class="help-list-icon">🎓</span>
+                            <span class="help-list-text">Explore diferentes matérias para ampliar seus conhecimentos</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help-contact">
+                    <h4>Precisa de mais ajuda?</h4>
+                    <p>Nossa equipe está sempre pronta para ajudar você!</p>
+                    <button class="help-contact-button" onclick="window.open('mailto:suporte@taloia.com', '_blank')">
+                        Entrar em Contato
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="memory_manager.js"></script>
+    <script type="module" src="../script.js"></script>
+</body>
+</html>
+
