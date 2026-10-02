@@ -1,0 +1,53 @@
+# Talos IA 3.0 - RAG Avançado - Requirements para Render
+
+# Ferramentas de build essenciais (instaladas primeiro)
+setuptools==69.5.1
+wheel==0.43.0
+
+# Dependências principais do Flask
+Flask==2.3.3
+Flask-JWT-Extended==4.5.3
+Flask-CORS==4.0.0
+Werkzeug==2.3.7
+
+# Banco de dados
+Flask-SQLAlchemy==3.0.5
+SQLAlchemy==2.0.21
+psycopg2-binary
+
+# APIs e requisições
+requests==2.31.0
+urllib3==2.0.7
+
+# Processamento de PDF
+pdfminer.six==20221105
+
+# RAG Avançado - Embeddings e Busca Semântica
+# Versões compatíveis com Python 3.10/3.11 e CPU-only
+sentence-transformers==2.7.0
+torch==2.5.0
+transformers==4.41.0
+tokenizers==0.19.1
+
+# Processamento de texto e matemática
+numpy==1.23.5 # Compatível com Python 3.10/3.11
+scikit-learn==1.2.2 # Compatível com Python 3.10/3.11
+
+# Utilitários
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Segurança e validação
+cryptography==41.0.7
+PyJWT==2.8.0
+
+# Logs e monitoramento
+python-json-logger==2.0.7
+
+# Cache e performance
+cachetools==5.3.2
+
+# Compatibilidade com Render
+gunicorn==21.2.0
+
+

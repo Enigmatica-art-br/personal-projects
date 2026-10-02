@@ -1,0 +1,26 @@
+- type: web
+  name: talos-ia
+  env: python
+  # ADICIONE ESTA LINHA ABAIXO DE 'env: python'
+  python_version: 3.11.8 # Esta linha define a versão do Python
+  buildCommand: pip install -r requirements.txt
+  startCommand: python src/main.py
+  envVars:
+  # MANTENHA SUAS VARIÁVEIS EXISTENTES
+  - key: SECRET_KEY
+    sync: false
+  - key: JWT_SECRET_KEY
+    sync: false
+  - key: DATABASE_URL
+    value: sqlite:///tutor_ia.db
+  - key: FLASK_ENV
+    value: production
+  - key: CHAT_PRIMARY_API
+    value: gemini
+  - key: CHAT_SECONDARY_API
+    value: openai
+  - key: IA3_API_KEY
+    sync: false
+  # ADICIONE ESTA VARIÁVEL DE AMBIENTE AQUI (SE AINDA NÃO ESTIVER NO DASHBOARD)
+  - key: CARGO_HOME
+    value: /tmp/cargo_home

@@ -1,0 +1,1 @@
+Talos-IA source snapshot for future migration. The original repository remains unchanged. Credential files, local database, and Python caches were deliberately excluded. Secrets in render.yaml and src/main.py were removed; set fresh secrets in the hosting provider before running. This directory is not a working GitHub Pages application.
