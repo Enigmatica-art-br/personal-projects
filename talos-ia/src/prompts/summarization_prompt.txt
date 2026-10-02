@@ -1,0 +1,6 @@
+Resuma o seguinte texto de forma concisa, mantendo as informações chave e o contexto principal. O resumo deve ter no máximo 100 palavras. Priorize a clareza e a relevância das informações para futuras interações. O resumo deve ser uma continuação lógica da conversa, focando nos pontos mais importantes da última troca de mensagens.
+
+Texto: {text_to_summarize}
+
+Resumo: 
+
