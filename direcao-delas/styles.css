@@ -25,7 +25,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: Georgia, "arial";
+  font-family: Georgia, "times new roman", serif;
   font-size: 1.05rem;
   line-height: 1.7;
 }
