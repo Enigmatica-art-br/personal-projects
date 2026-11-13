@@ -11,14 +11,15 @@
 - Imagem do jogo: https://store.steampowered.com/app/400/
 - Retrato e licença: https://commons.wikimedia.org/wiki/File:Kim_Swift_-_Game_Developers_Conference_2010_-_Panel_Day_4_(1).jpg
 
-## Tatiana Delgado e Call of the Sea
-- Biografia e retrato identificado (651 × 651): https://www.immersivetechweek.co/person/tatiana-delgado/
-- Jogo e captura oficial: https://www.outbluegames.com/callofthesea
-- Entrevista em primeira pessoa sobre direção criativa: https://www.gamedeveloper.com/business/creating-a-visual-language-that-makes-sense-of-the-madness-in-i-call-of-the-sea-i-
-- Artigo assinado por Tatiana: https://blog.playstation.com/2021/05/10/escape-from-madness-in-call-of-the-sea-on-ps4-and-ps5-out-tomorrow/
-- Captura selecionada: 03_Cots_Screenshots_Basecamp_House.png, da galeria oficial, preservada sem retoque.
+## Hannah Gamiel e Riven (2024)
+- Biografia, créditos e retrato: https://hannahgamiel.com/
+- Retrato original: https://hannahgamiel.com/img/profile.jpg (1365 × 1365).
+- Jogo: https://cyan.com/games/riven/
+- Captura: primeira imagem da galeria de https://store.steampowered.com/app/1712350/Riven/ (1920 × 1080).
+- Entrevista em primeira pessoa: https://voicesofvr.com/1417-kicking-off-venice-immersive-converge-with-translating-riven-classic-point-and-click-adventure-to-open-world-vr-puzzler/
+- A atuação descrita é no remake de 2024. Não atribui a Hannah a criação original de 1997 ou autoria exclusiva dos enigmas.
 
 ## Legendas
 Todas as seis legendas descrevem elementos visíveis nas imagens, sem slogans ou interpretação de seu significado. Referência técnica: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements/figcaption
 
-Talos 2 e Verena foram substituídos por solicitação do usuário em 13/11/2026. Os arquivos antigos não são referenciados pelo HTML atual. A tipografia serifada sem negrito da marca e o formato quadrado comum aos três retratos foram preservados.
+Riven (2024) e Hannah Gamiel foram escolhidos pelo usuário em 13/11/2026. Os recursos descartados de Talos 2, Verena, Call of the Sea e Tatiana foram removidos da versão atual do repositório, assim como a antiga captura de Outer Wilds e as cópias de imagens da pasta de redirecionamento site-delas. A marca serifada sem negrito e os três retratos quadrados foram preservados.
