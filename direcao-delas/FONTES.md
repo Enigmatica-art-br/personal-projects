@@ -1,21 +1,24 @@
-# Fontes da revisão de conteúdo
+# Fontes do conteúdo atual
 
-Revisão em 13 de novembro de 2026. Os jogos são obras coletivas; o texto distingue as contribuições individuais documentadas do processo das equipes.
+## Kelsey Beachum e Outer Wilds
+- https://kelseybeachum.com/about
+- https://kelseybeachum.com/samples
+- https://kelseybeachum.com/projects
+- Imagem do jogo: https://www.mobiusdigitalgames.com/outer-wilds.html
 
-- Kelsey Beachum, [Writing Samples](https://kelseybeachum.com/samples): funções dos textos Nomai, diálogos ramificados, colaboração na ferramenta de tradução e diário de Riebeck.
-- Kim Swift, [Thinking With Portals: Creating Valve's New IP](https://www.gamedeveloper.com/design/thinking-with-portals-creating-valve-s-new-ip), 4/11/2008: relato em primeira pessoa do processo coletivo de testes e reformulação das câmaras. O exemplo da esfera de energia descreve uma decisão da equipe, sem atribuição exclusiva a Swift.
-- Steven T. Wright, [entrevista com Jonas e Verena Kyratzes](https://store.epicgames.com/news/the-talos-principle-2-finding-humanity-in-an-age-of-robots?lang=pt-BR), 20/11/2023: sociedade, personagens e perspectivas na narrativa de The Talos Principle 2.
-- [GamesMarkt - Working in Games, junho de 2024, p. 42](https://www.gamesmarket.global/content/files/2026/03/GamesMarkt_Plus24_06_Working_in_Games.pdf#page=42): retrato editorialmente identificado de Verena Kyratzes e trajetória na Croteam. A imagem foi extraída do PDF sem geração, retoque ou ampliação. Arquivo de 133 × 133 pixels; crédito publicado: Kyratzes. A identificação editorial não comprova uma licença aberta de republicação; não foi localizada uma licença aberta no material consultado.
-- [Mobius Digital, galeria oficial de Outer Wilds](https://www.mobiusdigitalgames.com/outer-wilds.html): captura `ow-village_orig.png`, armazenada localmente como `images/outer-wilds-village.png`. Consultada a [política de conteúdo de fãs](https://www.mobiusdigitalgames.com/fan-content-policy.html); o rodapé identifica o caráter independente e educativo do site.
+## Kim Swift e Portal
+- Relato da própria desenvolvedora: https://www.gamedeveloper.com/design/thinking-with-portals-creating-valve-s-new-ip
+- Imagem do jogo: https://store.steampowered.com/app/400/
+- Retrato e licença: https://commons.wikimedia.org/wiki/File:Kim_Swift_-_Game_Developers_Conference_2010_-_Panel_Day_4_(1).jpg
 
-Os links biográficos e os créditos das demais imagens foram preservados no HTML. O favicon e a textura SVG foram criados para esta revisão. O retrato de Verena é apresentado em tamanho pequeno para respeitar a resolução disponível.
+## Tatiana Delgado e Call of the Sea
+- Biografia e retrato identificado (651 × 651): https://www.immersivetechweek.co/person/tatiana-delgado/
+- Jogo e captura oficial: https://www.outbluegames.com/callofthesea
+- Entrevista em primeira pessoa sobre direção criativa: https://www.gamedeveloper.com/business/creating-a-visual-language-that-makes-sense-of-the-madness-in-i-call-of-the-sea-i-
+- Artigo assinado por Tatiana: https://blog.playstation.com/2021/05/10/escape-from-madness-in-call-of-the-sea-on-ps4-and-ps5-out-tomorrow/
+- Captura selecionada: 03_Cots_Screenshots_Basecamp_House.png, da galeria oficial, preservada sem retoque.
 
+## Legendas
+Todas as seis legendas descrevem elementos visíveis nas imagens, sem slogans ou interpretação de seu significado. Referência técnica: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements/figcaption
 
-## Retrato atualizado de Verena
-
-Substituído no site por um quadro de 1280 × 720 da entrevista [Exclusive Interview: The Talos Principle 2, Thinky Games, 7/8/2023](https://www.youtube.com/watch?v=B3yoVxhld4Q), em 16:30. A identificação nominal aparece em 1:20 no mesmo vídeo. O arquivo foi extraído sem retoque ou ampliação; o enquadramento quadrado é feito pelo CSS comum aos três retratos. É uma imagem de webcam, com limitações de nitidez apesar da maior resolução. A fotografia anterior de 133 × 133 permanece arquivada, sem uso no HTML.
-
-Outras pistas examinadas: fotografia de grupo publicada pela Croteam em [Warning: writers detected!, 21/9/2015](https://www.croteam.com/warning-writers-detected/), inadequada como retrato frontal; página da palestra em Trieste de 2024, cuja imagem é uma captura do jogo; podcast Dev Diary 117, cuja capa encontrada é genérica. Não foram usadas fotos atribuídas apenas por semelhança.
-
-
-Quadro final: substituído pela captura de 1919 × 1079 fornecida pelo usuário da mesma entrevista, com expressão mais neutra. O instante exato dessa captura não foi informado. O arquivo PNG original foi preservado, com enquadramento quadrado pelo CSS.
+Talos 2 e Verena foram substituídos por solicitação do usuário em 13/11/2026. Os arquivos antigos não são referenciados pelo HTML atual. A tipografia serifada sem negrito da marca e o formato quadrado comum aos três retratos foram preservados.
