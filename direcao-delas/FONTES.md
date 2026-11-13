@@ -16,3 +16,6 @@ Os links biográficos e os créditos das demais imagens foram preservados no HTM
 Substituído no site por um quadro de 1280 × 720 da entrevista [Exclusive Interview: The Talos Principle 2, Thinky Games, 7/8/2023](https://www.youtube.com/watch?v=B3yoVxhld4Q), em 16:30. A identificação nominal aparece em 1:20 no mesmo vídeo. O arquivo foi extraído sem retoque ou ampliação; o enquadramento quadrado é feito pelo CSS comum aos três retratos. É uma imagem de webcam, com limitações de nitidez apesar da maior resolução. A fotografia anterior de 133 × 133 permanece arquivada, sem uso no HTML.
 
 Outras pistas examinadas: fotografia de grupo publicada pela Croteam em [Warning: writers detected!, 21/9/2015](https://www.croteam.com/warning-writers-detected/), inadequada como retrato frontal; página da palestra em Trieste de 2024, cuja imagem é uma captura do jogo; podcast Dev Diary 117, cuja capa encontrada é genérica. Não foram usadas fotos atribuídas apenas por semelhança.
+
+
+Quadro final: substituído pela captura de 1919 × 1079 fornecida pelo usuário da mesma entrevista, com expressão mais neutra. O instante exato dessa captura não foi informado. O arquivo PNG original foi preservado, com enquadramento quadrado pelo CSS.
