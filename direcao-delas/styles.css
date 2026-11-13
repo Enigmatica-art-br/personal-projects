@@ -94,8 +94,8 @@ a:focus-visible {
 
 .brand {
   color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
