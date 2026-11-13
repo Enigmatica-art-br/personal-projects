@@ -302,7 +302,7 @@ figure {
 
 .portrait img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center top;
 }
@@ -458,17 +458,9 @@ figcaption {
 /* Legendas separam o contexto da imagem dos créditos da fonte. */
 figcaption strong { display: block; color: var(--ink); }
 .caption-credit { display: block; margin-top: 0.55rem; font-size: 0.8rem; }
-.game-block h5 { margin: 1.6rem 0 0.6rem; font-size: 1.15rem; line-height: 1.4; }
 .game-block > p { max-width: 70ch; }
-.profile-grid--archive { grid-template-columns: 13rem minmax(0, 1fr); }
-.portrait--archive { background: #eee4d1; }
-.portrait--archive img { width: 133px; height: 133px; margin: 1.3rem auto; aspect-ratio: 1; object-fit: contain; }
 .site-footer { flex-wrap: wrap; }
 .fan-note { max-width: 34rem; font-size: 0.78rem; }
-@media (max-width: 760px) {
-  .profile-grid--archive { grid-template-columns: 1fr; }
-  .portrait--archive { max-width: 20rem; }
-}
 @media (prefers-reduced-motion: reduce) {
   .case-index a:hover, .case-index a:focus-visible, .case-index a:active,
   .case-index a:hover::after, .case-index a:focus-visible::after { transform: none; }
